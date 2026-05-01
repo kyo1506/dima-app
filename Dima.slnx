@@ -1,4 +1,7 @@
 <Solution>
-  <Project Path="Dima.Api/Dima.Api.csproj" />
-  <Project Path="Dima.Core/Dima.Core.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Dima.Web/Dima.Web.csproj" />
+    <Project Path="src/Dima.Api/Dima.Api.csproj" />
+    <Project Path="src/Dima.Core/Dima.Core.csproj" />
+  </Folder>
 </Solution>
