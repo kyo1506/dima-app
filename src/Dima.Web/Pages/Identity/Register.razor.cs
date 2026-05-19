@@ -9,6 +9,7 @@ namespace Dima.Web.Pages.Identity;
 public partial class Register : ComponentBase
 {
     public MudForm? _mudForm;
+    public bool _isValid;
 
     [Inject]
     ISnackbar Snackbar { get; set; } = null!;
@@ -34,12 +35,7 @@ public partial class Register : ComponentBase
 
     public async Task OnValidSubmitAsync()
     {
-        if (_mudForm is null)
-            return;
-
-        await _mudForm.ValidateAsync();
-
-        if (!_mudForm.IsValid)
+        if (!_isValid)
             return;
 
         IsBusy = true;
@@ -52,15 +48,7 @@ public partial class Register : ComponentBase
             {
                 Snackbar.Add(result.Message ?? "User registered successfully.", Severity.Success);
                 Navigation.NavigateTo("/login");
-                return;
             }
-
-            Snackbar.Add(result.Message ?? "An error occurred.", Severity.Error);
-        }
-        catch (Exception ex)
-        {
-            Snackbar.Add(ex.Message, Severity.Error);
-            throw;
         }
         finally
         {

@@ -15,6 +15,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped<CookieHandler>();
+builder.Services.AddScoped<CustomHttpHandler>();
 
 builder.Services.AddAuthorizationCore();
 
@@ -31,8 +32,11 @@ builder
         Configuration.HttpClientName,
         client => client.BaseAddress = new Uri(Configuration.BackendUrl)
     )
+    .AddHttpMessageHandler<CustomHttpHandler>()
     .AddHttpMessageHandler<CookieHandler>();
 
 builder.Services.AddTransient<IAccountHandler, AccountHandler>();
+builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
+builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
 
 await builder.Build().RunAsync();

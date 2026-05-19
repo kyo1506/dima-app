@@ -9,9 +9,7 @@ namespace Dima.Web.Pages.Identity;
 public partial class Login : ComponentBase
 {
     public MudForm? _mudForm;
-
-    [Inject]
-    ISnackbar Snackbar { get; set; } = null!;
+    public bool _isValid;
 
     [Inject]
     IAccountHandler Handler { get; set; } = null!;
@@ -34,12 +32,7 @@ public partial class Login : ComponentBase
 
     public async Task OnValidSubmitAsync()
     {
-        if (_mudForm is null)
-            return;
-
-        await _mudForm.ValidateAsync();
-
-        if (!_mudForm.IsValid)
+        if (!_isValid)
             return;
 
         IsBusy = true;
@@ -49,17 +42,7 @@ public partial class Login : ComponentBase
             var result = await Handler.LoginAsync(InputModel);
 
             if (result.IsSuccess)
-            {
                 Navigation.NavigateTo("/", forceLoad: true);
-                return;
-            }
-
-            Snackbar.Add(result.Message ?? "An error occurred.", Severity.Error);
-        }
-        catch (Exception ex)
-        {
-            Snackbar.Add(ex.Message, Severity.Error);
-            throw;
         }
         finally
         {

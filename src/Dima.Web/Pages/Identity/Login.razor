@@ -8,7 +8,7 @@
                 <MudImage Src="imgs/dima.png" Alt="Dima - Finance Control" Width="200" />
             </div>
             
-            <MudForm @ref="_mudForm" Model="InputModel">
+            <MudForm @ref="_mudForm" Model="InputModel" @bind-IsValid="_isValid">
                 <MudTextField T=string Label="Email" Required="true" InputType="InputType.Email"
                               For="@(() => InputModel.Email)" @bind-Value="InputModel.Email" />
 
@@ -24,7 +24,7 @@
                 else
                 {
                     <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
-                               OnClick="OnValidSubmitAsync">Login</MudButton>
+                               Disabled="@(!_isValid)" OnClick="OnValidSubmitAsync">Login</MudButton>
                     <MudSpacer />
                     <MudButton Href="/register" Variant="Variant.Filled" Color="Color.Secondary">Register</MudButton>
                 }

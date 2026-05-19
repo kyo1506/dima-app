@@ -14,9 +14,6 @@ public partial class Logout : ComponentBase
     IAccountHandler Handler { get; set; } = null!;
 
     [Inject]
-    NavigationManager Navigation { get; set; } = null!;
-
-    [Inject]
     ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
