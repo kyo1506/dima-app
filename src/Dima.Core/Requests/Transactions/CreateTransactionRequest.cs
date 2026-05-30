@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Dima.Core.Enums;
 
 namespace Dima.Core.Requests.Transactions;
 
@@ -8,8 +9,8 @@ public class CreateTransactionRequest : BaseRequest
     public string Title { get; set; } = string.Empty;
 
     [Required]
-    [Range(1, 2, ErrorMessage = "Type must be 1 (Deposit) or 2 (Withdrawal)")]
-    public int Type { get; set; }
+    [EnumDataType(typeof(ETransactionType))]
+    public ETransactionType Type { get; set; } = ETransactionType.Withdrawal;
 
     [Required]
     public decimal Amount { get; set; }

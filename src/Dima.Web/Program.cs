@@ -1,3 +1,4 @@
+using System.Globalization;
 using Dima.Core.Handlers;
 using Dima.Web;
 using Dima.Web.Handlers;
@@ -38,5 +39,9 @@ builder
 builder.Services.AddTransient<IAccountHandler, AccountHandler>();
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+
+builder.Services.AddLocalization();
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pt-BR");
 
 await builder.Build().RunAsync();

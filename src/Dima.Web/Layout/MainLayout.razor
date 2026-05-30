@@ -4,6 +4,7 @@
 
 <MudThemeProvider @ref="_mudThemeProvider" @bind-IsDarkMode="_isDarkMode" Theme="Configuration.Theme" />
 <MudSnackbarProvider />
+<MudDialogProvider />
 
 <AuthorizeView>
     <Authorized>
@@ -14,14 +15,15 @@
                 Dima
                 <MudSpacer />
                 <MudText Typo="Typo.caption">@context.User.Identity?.Name</MudText>
-                <MudSwitch @bind-Value="_isDarkMode" Color="Color.Inherit" Class="ma-4" T="bool" ThumbIcon="@Icons.Material.TwoTone.Lightbulb"/>
+                <MudSwitch @bind-Value="_isDarkMode" Color="Color.Inherit" Class="ma-4" T="bool"
+                           ThumbIcon="@Icons.Material.TwoTone.Lightbulb" />
                 <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Inherit" OnClick="Logout" />
             </MudAppBar>
             <MudDrawer @bind-Open="_isDrawerOpened">
                 <NavMenu />
             </MudDrawer>
             <MudMainContent>
-                <MudContainer>
+                <MudContainer Class="mt-4">
                     @Body
                 </MudContainer>
             </MudMainContent>

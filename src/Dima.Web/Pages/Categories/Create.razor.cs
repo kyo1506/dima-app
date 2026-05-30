@@ -5,7 +5,7 @@ using MudBlazor;
 
 namespace Dima.Web.Pages.Categories;
 
-public class CreateCategoryPage : ComponentBase
+public partial class CreateCategoryPage : ComponentBase
 {
     public bool IsBusy { get; set; }
     public bool _isValid;

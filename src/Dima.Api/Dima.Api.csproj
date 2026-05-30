@@ -6,22 +6,19 @@
     <UserSecretsId>d6d5384f-5953-4904-a449-1927b94d5223</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference
-      Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore"
-      Version="10.0.7"
-    />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.7">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.8" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dima.Core\Dima.Core.csproj" />
